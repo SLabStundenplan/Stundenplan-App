@@ -1,0 +1,41 @@
+{
+  "build": {
+    "beforeDevCommand": "",
+    "beforeBuildCommand": "",
+    "devPath": "../src",
+    "distDir": "../src",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "stundenplan",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.slab.stundenplan",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    },
+    "security": {
+      "csp": null
+    },
+    
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Stundenplan",
+        "width": 800,
+        "height": 600,
+        "url": "https://slabstundenplan.github.io/Stundenplan/"
+      }
+    ]
+  }
+}

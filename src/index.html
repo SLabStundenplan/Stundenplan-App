@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Stundenplan</title>
+    <script src="./index.js"></script>
+    <script>
+        selected_view = "week";
+    </script>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <header id="kopfbereich">
+        <h1>Stundenplan (für Studenten)</h1>
+    </header>
+
+    <nav id="navibereich">
+        
+    </nav>
+
+    <main id="hauptbereich">
+        <h3 id="stundenplan"> Stundenplan Wochenansicht</h3>
+        <br> 
+         <h3 id="csvdateineinlesen"> CSV Datei einlesen</h3>
+
+        <label>
+            CSV Öffnen
+            <input type="file" accept=".csv, .ics" onchange="openCsv(event)">
+        </label>
+        <button id="dayView" onclick="selected_view='day'; refresh();">Tages Ansicht</button>
+        <button id="weekView" onclick="selected_view='week'; refresh();">Wochen Ansicht</button>
+        <button id="monthView" onclick="selected_view='month'; refresh();">Monats Ansicht</button>
+        <br>
+        
+        <button onclick=showLoginDialog(true)> Termin hinzufügen </button>
+        
+        <dialog id="login-dialog"> 
+            <div class="wrapper"> 
+                <h2>Termin erstellen</h2>
+                <form> 
+                    <textarea type="Datum auswählen"> 
+                    </textarea> 
+                        <br> 
+                    <textarea type="Termin">
+                    </textarea> 
+                        <br> 
+                    <button>Termin erstellen</button>
+                    <button onclick=closeLoginDialog(false) type="button">Cancel</button> 
+                </form>
+            </div> 
+        </dialog> 
+        
+        <script> 
+            const dialog = document.getElementById("login-dialog")
+            const wrapper = document.querySelector(".wrapper")
+            
+            const showLoginDialog = (show) => show ? dialog. showModal() : dialog.close() 
+            dialog.addEventListener('click', (e) => !wrapper.contains(e.target) && dialog.close())
+        </script>
+        
+        <br> 
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th> Time </th>                                
+                    <th id="headerMonday"> Montag </th>
+                    <th id="headerTuesday"> Dienstag</th>
+                    <th id="headerWednesday"> Mittwoch </th>
+                    <th id="headerThursday"> Donnerstag </th>
+                    <th id="headerFriday"> Freitag </th>
+                </tr>
+            </thead>
+            <tbody id="eventContainer">
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+        <br> 
+        <button onclick="change(-1)">&lt;</button>             
+        <label id="labelSelectedDate"></label>
+        <button onclick="change(1)">></button>
+        <div id="eventContainer"></div>
+            <br> 
+        <h3 id="headerNotes"> Notizen </h3>
+        <br>
+        <textarea class="NoteInput" id="inputNotes" type="text" oninput="noteInput(event)" placeholder="Notizen Eingabe">
+        </textarea> 
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>

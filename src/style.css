@@ -1,0 +1,59 @@
+body {
+  background-color: #303030;
+  color: F9F8F8;
+}
+
+* {
+font-family: 'Comic Sans MS', sans-serif, cursive;
+}
+
+input {
+  position: fixed;
+  top: -100%;
+}
+
+textarea {
+display: block;
+width: 80%;
+background-color: #444444;
+color: F9F8F8;
+height: 50%;
+margin-left: auto;
+margin-right: auto;
+top: -100%;
+resize: none;
+}
+
+table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+button {
+color: F9F8F8;
+border: 1px solid transparent;
+background-color: transparent;
+}
+
+button a {
+text-decoration: none;
+color: F9F8F8;
+}
+
+.noteAdded {
+background-color: #1E90FF;
+}
+
+.noteRemoved {
+background-color: #444444;
+}
+
+td:hover.noteAdded {
+background-color: #6495ED;
+}
+
+td:hover.noteRemoved {
+background-color: #595959;
+}

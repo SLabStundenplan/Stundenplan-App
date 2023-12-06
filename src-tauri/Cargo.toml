@@ -1,0 +1,30 @@
+[package]
+name = "stundenplan"
+version = "0.0.0"
+description = "SLAB Stundenplan"
+authors = ["Niklas"]
+license = ""
+repository = ""
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# cargo build --target aarch64-apple-ios
+# cargo build --target aarch64-apple-ios-sim
+# cargo tauri ios dev
+
+[lib]
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+
+[build-dependencies]
+tauri-build = { version = "2.0.0-alpha.12", features = [] }
+
+[dependencies]
+tauri = { version = "2.0.0-alpha.18", features = [] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]
